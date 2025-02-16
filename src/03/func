@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# Function_equal !
+f_eqv() {
+	local file="$1"
+	local line="$2"
+
+echo "$file" | awk '{ gsub("=", "\n") } 1' | sed -n "${line}p"
+}
+# Function_equal _end
+
+# Prefix_to_mask !
+p_2_m() {
+    local prefix=$1
+    local mask=""
+    
+    for i in $(seq 1 4); do 
+# Команда seq генерирует последовательность чисел, 
+# начиная с 1 и заканчивая 4. Это эквивалентно числам 1 2 3 4.
+        if [ $prefix -ge 8 ]; then
+            mask="$mask$((255))"
+            prefix=$((prefix - 8))
+        elif [ $prefix -gt 0 ]; then
+            mask="$mask$((255 << (8 - $prefix) & 255))"
+            prefix=0
+        else
+            mask="$mask$((0))"
+        fi
+        if [ $i -lt 4 ]; then
+            mask="$mask."
+        fi
+    done
+
+    echo $mask
+}
+# Prefix_to_mask _end
+
+# RAM !
+ram () {
+	local val=$1
+	rm=$(echo "scale=3; $(free -k | awk "NR==2 {print \$$val}") / 1024 / 1024" | bc)
+
+if (( $(echo "$rm < 1" | bc -l) )); then
+    rm="0$rm"
+fi
+
+echo "$rm GB"
+}
+# RAM _end
+
+# Space !
+
+space () {
+	local val=$1
+	sp=$(echo "scale=2; $(df / | awk "NR==2 {print \$$val}") / 1024" | bc)
+if (( $(echo "$sp < 1" | bc -l) )); then
+	sp="0$sp"
+fi
+echo "$sp MB"
+}
+# Space _end

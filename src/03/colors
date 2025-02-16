@@ -1,0 +1,94 @@
+#!/bin/bash
+
+# 1 — white, 2 — red, 3 — green, 4 — blue, 5 – purple, 6 — black
+# Text  Fone
+#  37 	47	white
+#  31	41	red
+#  32	42	green
+#  34	44	blue
+#  35	45	purple
+#  30	40	black
+
+ case $1 in
+         1)
+                 fon=49 # Grey 47
+                 ;;
+         2)
+                 fon=41
+                 ;;
+         3)
+                 fon=42
+                 ;;
+         4)
+                 fon=44
+                 ;;
+         5)
+                 fon=45
+                 ;;
+         6)
+                 fon=40
+                 ;;
+        esac
+
+ case $2 in	
+	 1)
+		 col=37
+		 ;;
+	 2)
+		 col=31
+		 ;;
+	 3)
+		 col=32
+		 ;;
+	 4)
+		 col=34
+		 ;;
+	 5)
+		 col=35
+		 ;;
+	 6)
+		 col=39 # 30
+		 ;;
+	esac
+
+ case $3 in
+         1)
+                 fon2=49 # Grey 47
+                 ;;
+         2)
+                 fon2=41
+                 ;;
+         3)
+                 fon2=42
+                 ;;
+         4)
+                 fon2=44
+                 ;;
+         5)
+                 fon2=45
+                 ;;
+         6)
+                 fon2=40
+                 ;;
+        esac
+
+ case $4 in
+         1)
+                 col2=37
+                 ;;
+         2)
+                 col2=31
+                 ;;
+         3)
+                 col2=32
+                 ;;
+         4)
+                 col2=34
+                 ;;
+         5)
+                 col2=35
+                 ;;
+         6)
+                 col2=39 # 30
+                 ;;
+        esac

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+output_save (){
+	local -n dist=$1
+	local func=$2
+if [ "$func" == "y" ]; then
+	local timestamp=$(date +"%d_%m_%y_%H_%M_%S")
+        local filename="${timestamp}.status"
+
+	for key in "${keys[@]}"; do
+    		echo "$key = ${dist[$key]}" >> "$filename"
+	done
+	echo "All data saved to: $filename"
+else
+	for key in "${keys[@]}"; do
+        	echo "$key = ${dist[$key]}"
+done
+	fi
+}
