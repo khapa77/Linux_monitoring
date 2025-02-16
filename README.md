@@ -1,5 +1,7 @@
 # Linux Monitoring v1.0
 
+![linux_monitoring_v1](misc/images/screen.png)
+
 Linux basic bash scripting and system research.
 
 The russian version of the task can be found in the repository.
